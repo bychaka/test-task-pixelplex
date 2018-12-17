@@ -1,0 +1,26 @@
+.form-wrapper {
+  padding: 20px 80px 0 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+
+.form-button {
+  align-self: flex-end;
+}
+
+.list-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.list-item-text {
+  margin: 0;
+}
