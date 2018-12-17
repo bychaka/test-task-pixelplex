@@ -10,7 +10,7 @@ import "./taskOne.css";
 class TaskOne extends Component {
   render() {
     return (
-      <Container>
+      <Container className="task">
         <Row>
           <Col>
             <h3>Task #1</h3>
