@@ -1,5 +1,5 @@
 export const initialState = {
-  timerStep: 100
+  timerStep: 500
 };
 
 export const taskTimerReducer = (state = initialState, action) => {

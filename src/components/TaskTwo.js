@@ -30,21 +30,39 @@ const handle = props => {
 class TaskTwo extends Component {
   constructor(props) {
     super(props);
-    // this.state = {value: ''};
+    let localStep = this.props.timerInterval;
+    if (localStorage.getItem("interval")) {
+      localStep = parseInt(localStorage.getItem("interval"));
+    }
+    this.props.setTimerStep({ timerStep: localStep });
+
+    this.state = { counter: 0 };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.timerStart = this.timerStart.bind(this);
   }
+
+  timerStart(interval) {
+    clearInterval(this.timer);
+    this.timer = setTimeout(
+      () =>
+        this.setState({
+          counter: this.state.counter + interval
+        }),
+      interval
+    );
+  }
+
   handleChange(event) {
     this.props.setTimerStep({ timerStep: event });
-    // console.log(this.props, event);
+    localStorage.setItem("interval", event);
   }
 
-  componentDidMount() {
-    // this.props.set = 3000;
-    // this.props.setTimerStep({ timerStep: 3000 });
-  }
+  //   componentDidMount() {}
 
   render() {
+    const defaultStepValue = this.props.timerInterval;
+    this.timerStart(defaultStepValue);
+
     return (
       <Container className="task">
         <Row>
@@ -58,7 +76,7 @@ class TaskTwo extends Component {
               <Slider
                 min={0}
                 max={5000}
-                defaultValue={this.props.step}
+                defaultValue={defaultStepValue}
                 marks={{ 0: 0, 5000: 5000 }}
                 step={100}
                 handle={handle}
@@ -68,7 +86,7 @@ class TaskTwo extends Component {
           </Col>
           <Col>
             <h4>Counter:</h4>
-            <p>0000000{this.props.step}</p>
+            <p>{this.state.counter}</p>
           </Col>
         </Row>
       </Container>
@@ -78,7 +96,7 @@ class TaskTwo extends Component {
 
 const mapStateToProps = store => {
   return {
-    step: store.timer.timerStep
+    timerInterval: store.timer.timerStep
   };
 };
 
