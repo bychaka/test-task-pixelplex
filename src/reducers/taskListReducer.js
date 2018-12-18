@@ -1,3 +1,4 @@
+// import ListItem from "./ListItem";
 export const initialState = {
   listItems: []
 };
@@ -5,9 +6,9 @@ export const initialState = {
 export const taskListReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_LIST_ITEM": {
-      let newState = Object.assign({}, state);
-      newState.listItems.push(action.payload);
-      return Object.assign({}, newState);
+      return Object.assign({}, state, {
+        listItems: [...state.listItems, action.payload]
+      });
     }
     case "DELETE_LIST_ITEM":
       //еще тут запилить

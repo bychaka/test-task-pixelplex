@@ -30,34 +30,42 @@ const handle = props => {
 class TaskTwo extends Component {
   constructor(props) {
     super(props);
-    let localStep = this.props.timerInterval;
-    if (localStorage.getItem("interval")) {
-      localStep = parseInt(localStorage.getItem("interval"));
-    }
-    this.props.setTimerStep({ timerStep: localStep });
+    // this.localStep = this.props.timerInterval;
+    // if (localStorage.getItem("interval")) {
+    //   this.localStep = parseInt(localStorage.getItem("interval"));
+    //   this.props.setTimerStep({ timerStep: this.localStep });
+    // }
 
-    this.state = { counter: 0 };
+    // this.state = { counter: 0 };
     this.handleChange = this.handleChange.bind(this);
     this.timerStart = this.timerStart.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.action({
+      interval: this.props.timerParams.interval,
+      counter: this.props.timerParams.counter
+    });
   }
 
   timerStart(interval) {
     clearInterval(this.timer);
     this.timer = setTimeout(
       () =>
-        this.setState({
-          counter: this.state.counter + interval
+        this.props.action({
+          interval,
+          counter: this.props.timerParams.counter + interval
         }),
       interval
     );
   }
 
-  handleChange(event) {
-    this.props.setTimerStep({ timerStep: event });
-    localStorage.setItem("interval", event);
+  handleChange(interval) {
+    this.props.setTimerStep({
+      timerStep: { interval, counter: this.props.timerParams.counter }
+    });
+    localStorage.setItem("interval", interval);
   }
-
-  //   componentDidMount() {}
 
   render() {
     const defaultStepValue = this.props.timerInterval;
@@ -76,7 +84,7 @@ class TaskTwo extends Component {
               <Slider
                 min={0}
                 max={5000}
-                defaultValue={defaultStepValue}
+                defaultValue={this.localStep}
                 marks={{ 0: 0, 5000: 5000 }}
                 step={100}
                 handle={handle}
@@ -96,7 +104,7 @@ class TaskTwo extends Component {
 
 const mapStateToProps = store => {
   return {
-    timerInterval: store.timer.timerStep
+    timerParams: store.timer.timerStep
   };
 };
 

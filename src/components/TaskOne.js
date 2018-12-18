@@ -2,36 +2,28 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/lib/Container";
 import { connect } from "react-redux";
 import { addListItem } from "../actions/tasksActions";
-import { deleteListItem } from "../actions/tasksActions";
-import ListItem from "./ListItem";
+import List from "./List";
 
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import Form from "react-bootstrap/lib/Form";
 import Button from "react-bootstrap/lib/Button";
-import ListGroup from "react-bootstrap/lib/ListGroup";
+
 import "./taskOne.css";
 
 class TaskOne extends Component {
   constructor(props) {
     super(props);
-    this.state = { items: "" };
     this.addTextClickHandler = this.addTextClickHandler.bind(this);
-    this.deleteTextClickHandler = this.deleteTextClickHandler.bind(this);
-  }
-
-  deleteTextClickHandler() {
-    console.log("delete text", this.refs.paragraf);
-    this.props.list.map((value, key) => console.log(value.id, key));
   }
 
   addTextClickHandler() {
     if (this.refs.textInput.value) {
-      console.log("olala", this.refs.textInput.value);
       this.props.addListItem({
         id: +new Date(),
         value: this.refs.textInput.value
       });
+      this.refs.textInput.value = "";
     }
   }
 
@@ -64,11 +56,7 @@ class TaskOne extends Component {
           </Col>
           <Col>
             <h4>List:</h4>
-            <ListGroup>
-              {this.props.list.map(object => {
-                return <ListItem data={object} />;
-              })}
-            </ListGroup>
+            <List data={this.props.list} />
           </Col>
         </Row>
       </Container>
@@ -83,8 +71,7 @@ const mapStateToProps = store => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addListItem: item => dispatch(addListItem(item)),
-  deleteListItem: item => dispatch(deleteListItem(item))
+  addListItem: item => dispatch(addListItem(item))
 });
 
 export default connect(
