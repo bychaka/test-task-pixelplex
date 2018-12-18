@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppHeader from "./components/AppHeader";
-import TaskOne from "./components/TaskOne";
-import TaskTwo from "./components/TaskTwo";
+import TaskOne from "./components/taskOne/TaskOne";
+import TaskTwo from "./components/taskTwo/TaskTwo";
 
 class App extends Component {
   render() {

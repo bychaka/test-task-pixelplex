@@ -1,18 +1,18 @@
-// import ListItem from "./ListItem";
 export const initialState = {
   listItems: []
 };
 
 export const taskListReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_LIST_ITEM": {
+    case "ON_ADD_ITEM": {
       return Object.assign({}, state, {
         listItems: [...state.listItems, action.payload]
       });
     }
-    case "DELETE_LIST_ITEM":
-      //еще тут запилить
-      return Object.assign({}, state, action.payload);
+    case "ON_DELETE_ITEM":
+      return Object.assign({}, state, {
+        listItems: state.listItems.filter(item => item.id !== action.payload.id)
+      });
     default:
       return state;
   }

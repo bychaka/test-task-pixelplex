@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/lib/Container";
 import { connect } from "react-redux";
-import { setTimerStep } from "../actions/tasksActions";
+import { setTimerStep } from "../../actions/tasksActions";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import Tooltip from "rc-tooltip";

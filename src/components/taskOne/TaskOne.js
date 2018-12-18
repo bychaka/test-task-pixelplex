@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/lib/Container";
 import { connect } from "react-redux";
-import { addListItem } from "../actions/tasksActions";
+import { onAddItem, onDeleteItem } from "../../actions/tasksActions";
 import List from "./List";
 
 import Row from "react-bootstrap/lib/Row";
@@ -14,13 +14,13 @@ import "./taskOne.css";
 class TaskOne extends Component {
   constructor(props) {
     super(props);
-    this.addTextClickHandler = this.addTextClickHandler.bind(this);
-    this.deleteTextClickHandler = this.deleteTextClickHandler.bind(this);
+    this.addTextHandler = this.addTextHandler.bind(this);
+    this.deleteTextHandler = this.deleteTextHandler.bind(this);
   }
 
-  addTextClickHandler() {
+  addTextHandler() {
     if (this.refs.textInput.value) {
-      this.props.addListItem({
+      this.props.onAddItem({
         id: +new Date(),
         value: this.refs.textInput.value
       });
@@ -28,8 +28,8 @@ class TaskOne extends Component {
     }
   }
 
-  deleteTextClickHandler() {
-    alert("1111");
+  deleteTextHandler(id) {
+    this.props.onDeleteItem({ id });
   }
 
   render() {
@@ -52,7 +52,7 @@ class TaskOne extends Component {
                 <Button
                   className="form-button"
                   variant="outline-secondary"
-                  onClick={this.addTextClickHandler}
+                  onClick={this.addTextHandler}
                 >
                   Add text
                 </Button>
@@ -63,7 +63,7 @@ class TaskOne extends Component {
             <h4>List:</h4>
             <List
               data={this.props.list}
-              onDeleteHandler={this.deleteTextClickHandler}
+              onDeleteHandler={this.deleteTextHandler}
             />
           </Col>
         </Row>
@@ -79,7 +79,8 @@ const mapStateToProps = store => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addListItem: item => dispatch(addListItem(item))
+  onAddItem: item => dispatch(onAddItem(item)),
+  onDeleteItem: item => dispatch(onDeleteItem(item))
 });
 
 export default connect(
