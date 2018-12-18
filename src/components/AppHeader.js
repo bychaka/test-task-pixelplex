@@ -6,7 +6,7 @@ class AppHeader extends Component {
   render() {
     return (
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/test-task-pixelplex">
           <img
             src="https://image.ibb.co/k7cmVT/logo_w.png"
             width="200"
@@ -15,7 +15,7 @@ class AppHeader extends Component {
           />
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/">Home link</Nav.Link>
+          <Nav.Link href="/test-task-pixelplex">Home link</Nav.Link>
           <Nav.Link href="https://pixelplex.io" target="_blank">
             Pixelplex link
           </Nav.Link>

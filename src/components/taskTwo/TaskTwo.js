@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "react-bootstrap/lib/Container";
 import { connect } from "react-redux";
-import { setTimerStep } from "../actions/tasksActions";
+import { setTimerStep } from "../../actions/tasksActions";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import Tooltip from "rc-tooltip";
@@ -30,13 +30,6 @@ const handle = props => {
 class TaskTwo extends Component {
   constructor(props) {
     super(props);
-    let localStep = this.props.timerInterval;
-    if (localStorage.getItem("interval")) {
-      localStep = parseInt(localStorage.getItem("interval"));
-    }
-    this.props.setTimerStep({ timerStep: localStep });
-
-    this.state = { counter: 0 };
     this.handleChange = this.handleChange.bind(this);
     this.timerStart = this.timerStart.bind(this);
   }
@@ -45,23 +38,24 @@ class TaskTwo extends Component {
     clearInterval(this.timer);
     this.timer = setTimeout(
       () =>
-        this.setState({
-          counter: this.state.counter + interval
+        this.props.setTimerStep({
+          interval,
+          counter: this.props.timerParams.counter + interval
         }),
       interval
     );
   }
 
-  handleChange(event) {
-    this.props.setTimerStep({ timerStep: event });
-    localStorage.setItem("interval", event);
+  handleChange(interval) {
+    localStorage.setItem("interval", interval);
+    this.props.setTimerStep({
+      interval,
+      counter: this.props.timerParams.counter
+    });
   }
 
-  //   componentDidMount() {}
-
   render() {
-    const defaultStepValue = this.props.timerInterval;
-    this.timerStart(defaultStepValue);
+    this.timerStart(this.props.timerParams.interval);
 
     return (
       <Container className="task">
@@ -76,7 +70,7 @@ class TaskTwo extends Component {
               <Slider
                 min={0}
                 max={5000}
-                defaultValue={defaultStepValue}
+                defaultValue={this.props.timerParams.interval}
                 marks={{ 0: 0, 5000: 5000 }}
                 step={100}
                 handle={handle}
@@ -86,7 +80,7 @@ class TaskTwo extends Component {
           </Col>
           <Col>
             <h4>Counter:</h4>
-            <p>{this.state.counter}</p>
+            <p>{this.props.timerParams.counter}</p>
           </Col>
         </Row>
       </Container>
@@ -96,7 +90,7 @@ class TaskTwo extends Component {
 
 const mapStateToProps = store => {
   return {
-    timerInterval: store.timer.timerStep
+    timerParams: store.timer
   };
 };
 

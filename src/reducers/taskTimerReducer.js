@@ -1,5 +1,6 @@
 export const initialState = {
-  timerStep: 500
+  counter: 0,
+  interval: parseInt(localStorage.getItem("interval"), 10) || 0
 };
 
 export const taskTimerReducer = (state = initialState, action) => {
