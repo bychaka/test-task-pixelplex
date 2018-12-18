@@ -3,6 +3,7 @@ import Container from "react-bootstrap/lib/Container";
 import { connect } from "react-redux";
 import { addListItem } from "../actions/tasksActions";
 import { deleteListItem } from "../actions/tasksActions";
+import ListItem from "./ListItem";
 
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
@@ -17,24 +18,6 @@ class TaskOne extends Component {
     this.state = { items: "" };
     this.addTextClickHandler = this.addTextClickHandler.bind(this);
     this.deleteTextClickHandler = this.deleteTextClickHandler.bind(this);
-    this.newList = this.newList.bind(this);
-  }
-
-  newList() {
-    let y = this.props.list.map((value, key) => (
-      <ListGroup.Item className="list-item" key={key}>
-        <p className="list-item-text">{value}</p>
-        <Button
-          variant="outline-secondary"
-          onClick={this.deleteTextClickHandler}
-        >
-          delete text
-        </Button>
-      </ListGroup.Item>
-    ));
-
-    console.log(y);
-    return y;
   }
 
   deleteTextClickHandler() {
@@ -50,25 +33,9 @@ class TaskOne extends Component {
         value: this.refs.textInput.value
       });
     }
-    this.newList();
   }
 
   render() {
-    // const newList = this.newList();
-    const arrayList = this.props.list;
-    var List = arrayList.map(function(el, index) {
-      return (
-        <ListGroup.Item className="list-item" key={index}>
-          <p className="list-item-text">{el}</p>
-          <Button
-            variant="outline-secondary"
-            onClick={this.deleteTextClickHandler}
-          >
-            delete text
-          </Button>
-        </ListGroup.Item>
-      );
-    });
     return (
       <Container className="task">
         <Row>
@@ -98,21 +65,9 @@ class TaskOne extends Component {
           <Col>
             <h4>List:</h4>
             <ListGroup>
-              {console.log(List)}
-              {/* {this.state.items} */}
-              {/* {newList} */}
-              {/* {this.props.list.map((value, id) => console.log(value.id, id))} */}
-              {/* <ListGroup.Item className="list-item">
-                <p className="list-item-text" ref="paragraf">
-                  Cras justo odio
-                </p>
-                <Button
-                  variant="outline-secondary"
-                  onClick={this.deleteTextClickHandler}
-                >
-                  delete text
-                </Button>
-              </ListGroup.Item> */}
+              {this.props.list.map(object => {
+                return <ListItem data={object} />;
+              })}
             </ListGroup>
           </Col>
         </Row>
