@@ -1,14 +1,14 @@
-export const addListItem = items => {
+export const addListItem = item => {
   return {
     type: "ADD_LIST_ITEM",
-    payload: items
+    payload: item
   };
 };
 
-export const deleteListItem = items => {
+export const deleteListItem = item => {
   return {
     type: "DELETE_LIST_ITEM",
-    payload: items
+    payload: item
   };
 };
 

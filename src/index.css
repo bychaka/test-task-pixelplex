@@ -14,5 +14,13 @@ code {
 }
 
 .task {
-  margin-bottom: 120px;
+  margin-bottom: 70px;
+}
+
+.task:last-child {
+  margin-bottom: 0;
+}
+
+.task {
+  padding-top: 50px;
 }
