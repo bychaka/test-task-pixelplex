@@ -15,6 +15,7 @@ class TaskOne extends Component {
   constructor(props) {
     super(props);
     this.addTextClickHandler = this.addTextClickHandler.bind(this);
+    this.deleteTextClickHandler = this.deleteTextClickHandler.bind(this);
   }
 
   addTextClickHandler() {
@@ -25,6 +26,10 @@ class TaskOne extends Component {
       });
       this.refs.textInput.value = "";
     }
+  }
+
+  deleteTextClickHandler() {
+    alert("1111");
   }
 
   render() {
@@ -56,7 +61,10 @@ class TaskOne extends Component {
           </Col>
           <Col>
             <h4>List:</h4>
-            <List data={this.props.list} />
+            <List
+              data={this.props.list}
+              onDeleteHandler={this.deleteTextClickHandler}
+            />
           </Col>
         </Row>
       </Container>
