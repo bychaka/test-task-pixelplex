@@ -1,7 +1,7 @@
 {
   "main.css": "/test-task-pixelplex/static/css/main.d6b9c7e5.chunk.css",
-  "main.js": "/test-task-pixelplex/static/js/main.9c3470f8.chunk.js",
-  "main.js.map": "/test-task-pixelplex/static/js/main.9c3470f8.chunk.js.map",
+  "main.js": "/test-task-pixelplex/static/js/main.ae93b58f.chunk.js",
+  "main.js.map": "/test-task-pixelplex/static/js/main.ae93b58f.chunk.js.map",
   "static/css/1.e2f0efe1.chunk.css": "/test-task-pixelplex/static/css/1.e2f0efe1.chunk.css",
   "static/js/1.e4f8c8a7.chunk.js": "/test-task-pixelplex/static/js/1.e4f8c8a7.chunk.js",
   "static/js/1.e4f8c8a7.chunk.js.map": "/test-task-pixelplex/static/js/1.e4f8c8a7.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.e2f0efe1.chunk.css.map": "/test-task-pixelplex/static/css/1.e2f0efe1.chunk.css.map",
   "static/css/main.d6b9c7e5.chunk.css.map": "/test-task-pixelplex/static/css/main.d6b9c7e5.chunk.css.map",
   "index.html": "/test-task-pixelplex/index.html",
-  "precache-manifest.bd7bf2979e2e348b29b852c8777a8e41.js": "/test-task-pixelplex/precache-manifest.bd7bf2979e2e348b29b852c8777a8e41.js",
+  "precache-manifest.bc436ad95606874f39ba8c19f8af9116.js": "/test-task-pixelplex/precache-manifest.bc436ad95606874f39ba8c19f8af9116.js",
   "service-worker.js": "/test-task-pixelplex/service-worker.js"
 }
