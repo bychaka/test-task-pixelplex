@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/test-task-pixelplex/precache-manifest.bc436ad95606874f39ba8c19f8af9116.js"
+  "/test-task-pixelplex/precache-manifest.86a4a0f9643307503f0aa209eedb1b9e.js"
 );
 
 workbox.clientsClaim();
