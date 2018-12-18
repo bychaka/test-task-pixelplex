@@ -1,15 +1,15 @@
 {
-  "main.css": "/static/css/main.d6b9c7e5.chunk.css",
-  "main.js": "/static/js/main.1dc24e25.chunk.js",
-  "main.js.map": "/static/js/main.1dc24e25.chunk.js.map",
-  "static/css/1.e2f0efe1.chunk.css": "/static/css/1.e2f0efe1.chunk.css",
-  "static/js/1.e4f8c8a7.chunk.js": "/static/js/1.e4f8c8a7.chunk.js",
-  "static/js/1.e4f8c8a7.chunk.js.map": "/static/js/1.e4f8c8a7.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.d6b9c7e5.chunk.css.map": "/static/css/main.d6b9c7e5.chunk.css.map",
-  "static/css/1.e2f0efe1.chunk.css.map": "/static/css/1.e2f0efe1.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.a9f15eee6dbf32f7f76c119abdb8997b.js": "/precache-manifest.a9f15eee6dbf32f7f76c119abdb8997b.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/test-task-pixelplex/static/css/main.d6b9c7e5.chunk.css",
+  "main.js": "/test-task-pixelplex/static/js/main.9c3470f8.chunk.js",
+  "main.js.map": "/test-task-pixelplex/static/js/main.9c3470f8.chunk.js.map",
+  "static/css/1.e2f0efe1.chunk.css": "/test-task-pixelplex/static/css/1.e2f0efe1.chunk.css",
+  "static/js/1.e4f8c8a7.chunk.js": "/test-task-pixelplex/static/js/1.e4f8c8a7.chunk.js",
+  "static/js/1.e4f8c8a7.chunk.js.map": "/test-task-pixelplex/static/js/1.e4f8c8a7.chunk.js.map",
+  "runtime~main.js": "/test-task-pixelplex/static/js/runtime~main.800f2bfd.js",
+  "runtime~main.js.map": "/test-task-pixelplex/static/js/runtime~main.800f2bfd.js.map",
+  "static/css/1.e2f0efe1.chunk.css.map": "/test-task-pixelplex/static/css/1.e2f0efe1.chunk.css.map",
+  "static/css/main.d6b9c7e5.chunk.css.map": "/test-task-pixelplex/static/css/main.d6b9c7e5.chunk.css.map",
+  "index.html": "/test-task-pixelplex/index.html",
+  "precache-manifest.bd7bf2979e2e348b29b852c8777a8e41.js": "/test-task-pixelplex/precache-manifest.bd7bf2979e2e348b29b852c8777a8e41.js",
+  "service-worker.js": "/test-task-pixelplex/service-worker.js"
 }
