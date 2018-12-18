@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { deleteListItem } from "../actions/tasksActions";
+// import { connect } from "react-redux";
+// import { deleteListItem } from "../actions/tasksActions";
 
 import Button from "react-bootstrap/lib/Button";
 import ListGroup from "react-bootstrap/lib/ListGroup";
@@ -9,12 +9,13 @@ import "./taskOne.css";
 class ListItem extends Component {
   constructor(...args) {
     super(...args);
-    this.deleteTextClickHandler = this.deleteTextClickHandler.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
-  deleteTextClickHandler() {
+  deleteItem(id) {
     console.log(this.props.data.id);
     console.log(this.props);
+    // this.props.deleteTextClickHandler(id);
   }
 
   render() {
@@ -23,7 +24,7 @@ class ListItem extends Component {
         <p className="list-item-text">{this.props.data.value}</p>
         <Button
           variant="outline-secondary"
-          onClick={this.deleteTextClickHandler}
+          onClick={this.deleteItem(this.props.data.id)}
         >
           delete text
         </Button>
@@ -32,17 +33,19 @@ class ListItem extends Component {
   }
 }
 
-const mapStateToProps = store => {
-  return {
-    list: store.list.listItems
-  };
-};
+export default ListItem;
 
-const mapDispatchToProps = dispatch => ({
-  deleteListItem: item => dispatch(deleteListItem(item))
-});
+// const mapStateToProps = store => {
+//   return {
+//     list: store.list.listItems
+//   };
+// };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ListItem);
+// const mapDispatchToProps = dispatch => ({
+//   deleteListItem: item => dispatch(deleteListItem(item))
+// });
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(ListItem);
